@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddTaskViewController" customModule="TaskApp" customModuleProvider="target">
             <connections>
                 <outlet property="categoryPicker" destination="8GI-dm-adP" id="Pl6-f5-tSa"/>
+                <outlet property="dateTextField" destination="B8Q-wg-bmI" id="q8l-1A-oCO"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

@@ -8,16 +8,17 @@
 
 import UIKit
 
-class AddTaskViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource  {
+class AddTaskViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
 
     
     @IBOutlet var categoryPicker: UIPickerView!
+    @IBOutlet var dateTextField: UITextField!
     
     // カテゴリーリスト(debug)
     var categoryList = ["無し", "仕事", "プライベート"]
     
     
-    
+    // MARK: FormLoad時
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,8 +32,15 @@ class AddTaskViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         // はじめに表示する項目を指定
         categoryPicker.selectRow(0, inComponent: 0, animated: true)
         
+        /*********************
+         *  期日設定
+         *********************/
+        // テキストフィールドにDatePickerを表示する
+        let datePicker = UIDatePicker()
+        dateTextField.inputView = datePicker
         
-        
+        // 日本の日付表示形式にする
+        datePicker.locale = NSLocale(localeIdentifier: "ja_JP") as Locale
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,6 +71,8 @@ class AddTaskViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         // 選択時の処理
         print(categoryList[row])
     }
+    
+    
     
     
 }
