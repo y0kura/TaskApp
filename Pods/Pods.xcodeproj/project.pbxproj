@@ -1,0 +1,628 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01C69DA8E5CAB5B30B9A726CE81C64E3 /* PopupDialogOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B1B7DEB5C0B9219AB7DDF2BFD82D14 /* PopupDialogOverlayView.swift */; };
+		1AB7F52C4E30F4A97EE7D0F2F3B18C85 /* PopupDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F479277725D5005EF246CDC4917C38 /* PopupDialog.swift */; };
+		1B14B03B335B72B6F727C94DAD2FABC0 /* UIViewController+Visibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41538A2AA873A9F1F42CD77A96AD57 /* UIViewController+Visibility.swift */; };
+		1E1D674FE11DDCF602321BA48CF451FB /* PopupDialogDefaultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6AB5983422D51E4577226940D69E3B /* PopupDialogDefaultViewController.swift */; };
+		3137ADA3169C9F2EB73307C53DA58BCC /* PresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970D7F87A590564548A61661C1954652 /* PresentationManager.swift */; };
+		5293CD8B9CBF78C92199D0AEEA3B1A18 /* TransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACE7F239C94E350ED68E632178D97FD /* TransitionAnimator.swift */; };
+		606898D435B533B8B729F54703099FBA /* PopupDialogDefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A9B644D4179C6A3AC023E41E1CA839 /* PopupDialogDefaultView.swift */; };
+		682A77FE95B80162CFC9104AD1EC6A70 /* FXBlurView.h in Headers */ = {isa = PBXBuildFile; fileRef = 03D358A3613EB08F0370C32C0BAC75DD /* FXBlurView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6EE7C79C0A54F27029796C8DA921B5AC /* InteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49682067F6C4D1CF80771EF845766596 /* InteractiveTransition.swift */; };
+		7DDEBE62E931146AB9E7D3A6BABF6C58 /* UIView+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE738E674D920435D80DA1143F918A6 /* UIView+Animations.swift */; };
+		8889E20BB13B8C0165540DDC41D58C3B /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6857CA437C74A08BD6C3E00D30DC833 /* FXBlurView.m */; };
+		8B05ACC798D7486CBC7345625A94DDA7 /* PopupDialog-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F575662234000EA80FCB79B3447B7F /* PopupDialog-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		972931AF098CEC4E10030CF7ABB9A5EA /* PopupDialogDefaultButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52B4770F34AF0B18CE182BA3F24ADC9 /* PopupDialogDefaultButtons.swift */; };
+		97AA1CEEF240D5E0C55A4798BE2D13B1 /* PopupDialog-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CFCFAEB1588F2D5A2A4F4B18E683EE /* PopupDialog-dummy.m */; };
+		9E3B789BAED511F18031DDAED5BC8A80 /* PresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070A59B2F0AC779785004CD295BA5927 /* PresentationController.swift */; };
+		C02A9FEC66F4F4D0E53DF53EFC2F84BF /* PopupDialog+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC1B477683825DB1F2A8D239B9BC56B /* PopupDialog+Keyboard.swift */; };
+		C4E553C445BA36AD9F8AD0457396E503 /* TransitionAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5309466DE50CA169B15A754F936703 /* TransitionAnimations.swift */; };
+		C8777254C314230679E46F7647742843 /* Pods-TaskApp-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D373BDE580B5BFFF95047E5497022B /* Pods-TaskApp-dummy.m */; };
+		C9AB9C483EEE1D3877E26A14BE53CD41 /* UIImageView+Calculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685763E94EFB56A907AF403D0B795251 /* UIImageView+Calculations.swift */; };
+		D8228B26AB1C77C5516604640120DEBA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		E44F3465829A76C23469B6C515815DA7 /* PopupDialogContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA81510A571388638680BCB7AD583B1 /* PopupDialogContainerView.swift */; };
+		EC44B16B61BB655B853958E56E85B32A /* PopupDialogButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171ED3B961E5C77913A4C2B460F11C89 /* PopupDialogButton.swift */; };
+		FA4FF7EF4B7AB28C6975A3982E0C027A /* Pods-TaskApp-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D7E0B2375C32D6D81E0BB8A2B8FF47DB /* Pods-TaskApp-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FF5567EFB4D6759DC9D75ECCF0DC720C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E8873BA6E8B8CFD45922EFF72B0A0500 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9A3BEC0E0B23D94DF3049F973A844460;
+			remoteInfo = PopupDialog;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		03D358A3613EB08F0370C32C0BAC75DD /* FXBlurView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FXBlurView.h; path = PopupDialog/Classes/FXBlurView.h; sourceTree = "<group>"; };
+		070A59B2F0AC779785004CD295BA5927 /* PresentationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PresentationController.swift; path = PopupDialog/Classes/PresentationController.swift; sourceTree = "<group>"; };
+		09A9B644D4179C6A3AC023E41E1CA839 /* PopupDialogDefaultView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PopupDialogDefaultView.swift; path = PopupDialog/Classes/PopupDialogDefaultView.swift; sourceTree = "<group>"; };
+		0AA81510A571388638680BCB7AD583B1 /* PopupDialogContainerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PopupDialogContainerView.swift; path = PopupDialog/Classes/PopupDialogContainerView.swift; sourceTree = "<group>"; };
+		171ED3B961E5C77913A4C2B460F11C89 /* PopupDialogButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PopupDialogButton.swift; path = PopupDialog/Classes/PopupDialogButton.swift; sourceTree = "<group>"; };
+		1C5BA7CFACA9B4B58D11AA592462D502 /* PopupDialog.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PopupDialog.xcconfig; sourceTree = "<group>"; };
+		22B1B7DEB5C0B9219AB7DDF2BFD82D14 /* PopupDialogOverlayView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PopupDialogOverlayView.swift; path = PopupDialog/Classes/PopupDialogOverlayView.swift; sourceTree = "<group>"; };
+		34F479277725D5005EF246CDC4917C38 /* PopupDialog.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PopupDialog.swift; path = PopupDialog/Classes/PopupDialog.swift; sourceTree = "<group>"; };
+		390015E7FF242A1DAD9E370699DD5964 /* Pods_TaskApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_TaskApp.framework; path = "Pods-TaskApp.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		49682067F6C4D1CF80771EF845766596 /* InteractiveTransition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InteractiveTransition.swift; path = PopupDialog/Classes/InteractiveTransition.swift; sourceTree = "<group>"; };
+		4C5309466DE50CA169B15A754F936703 /* TransitionAnimations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransitionAnimations.swift; path = PopupDialog/Classes/TransitionAnimations.swift; sourceTree = "<group>"; };
+		4EE738E674D920435D80DA1143F918A6 /* UIView+Animations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+Animations.swift"; path = "PopupDialog/Classes/UIView+Animations.swift"; sourceTree = "<group>"; };
+		50B2BD3AF0C4A8383C6946E64D208FC7 /* Pods-TaskApp-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TaskApp-acknowledgements.markdown"; sourceTree = "<group>"; };
+		65CFCFAEB1588F2D5A2A4F4B18E683EE /* PopupDialog-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PopupDialog-dummy.m"; sourceTree = "<group>"; };
+		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		685763E94EFB56A907AF403D0B795251 /* UIImageView+Calculations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImageView+Calculations.swift"; path = "PopupDialog/Classes/UIImageView+Calculations.swift"; sourceTree = "<group>"; };
+		6F620AE6784D10DDCC3C106CFC16FEA7 /* Pods-TaskApp-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TaskApp-frameworks.sh"; sourceTree = "<group>"; };
+		82A5D639CA30669A9876DD4FF28FB98C /* Pods-TaskApp.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-TaskApp.modulemap"; sourceTree = "<group>"; };
+		8E6C796749072052FA03D249308F2979 /* Pods-TaskApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TaskApp.debug.xcconfig"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		970D7F87A590564548A61661C1954652 /* PresentationManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PresentationManager.swift; path = PopupDialog/Classes/PresentationManager.swift; sourceTree = "<group>"; };
+		AB41538A2AA873A9F1F42CD77A96AD57 /* UIViewController+Visibility.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+Visibility.swift"; path = "PopupDialog/Classes/UIViewController+Visibility.swift"; sourceTree = "<group>"; };
+		AB7BE5B26BB918EF04AC43C86FD69A0A /* PopupDialog-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PopupDialog-prefix.pch"; sourceTree = "<group>"; };
+		AC6AB5983422D51E4577226940D69E3B /* PopupDialogDefaultViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PopupDialogDefaultViewController.swift; path = PopupDialog/Classes/PopupDialogDefaultViewController.swift; sourceTree = "<group>"; };
+		ACC1B477683825DB1F2A8D239B9BC56B /* PopupDialog+Keyboard.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "PopupDialog+Keyboard.swift"; path = "PopupDialog/Classes/PopupDialog+Keyboard.swift"; sourceTree = "<group>"; };
+		B52B4770F34AF0B18CE182BA3F24ADC9 /* PopupDialogDefaultButtons.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PopupDialogDefaultButtons.swift; path = PopupDialog/Classes/PopupDialogDefaultButtons.swift; sourceTree = "<group>"; };
+		C6F575662234000EA80FCB79B3447B7F /* PopupDialog-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PopupDialog-umbrella.h"; sourceTree = "<group>"; };
+		D05BE8048141233BB8C7FF1EDBDE30C9 /* Pods-TaskApp-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TaskApp-resources.sh"; sourceTree = "<group>"; };
+		D186D2D4E8B59473D97358409BEBBAC4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3D373BDE580B5BFFF95047E5497022B /* Pods-TaskApp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TaskApp-dummy.m"; sourceTree = "<group>"; };
+		D7E0B2375C32D6D81E0BB8A2B8FF47DB /* Pods-TaskApp-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TaskApp-umbrella.h"; sourceTree = "<group>"; };
+		D902461CE2DC810EEECA35A7C2A2DB94 /* Pods-TaskApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TaskApp.release.xcconfig"; sourceTree = "<group>"; };
+		DC289FE47A00333A1B68745AEA3B13B3 /* PopupDialog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = PopupDialog.framework; path = PopupDialog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E197871E2E157F7C75B2AAB01D1EB169 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F37CD11859081952B82F2A34CC79A3EF /* Pods-TaskApp-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TaskApp-acknowledgements.plist"; sourceTree = "<group>"; };
+		F5052600E36B3CFA9D58DAEEB25C71C5 /* PopupDialog.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = PopupDialog.modulemap; sourceTree = "<group>"; };
+		F6857CA437C74A08BD6C3E00D30DC833 /* FXBlurView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FXBlurView.m; path = PopupDialog/Classes/FXBlurView.m; sourceTree = "<group>"; };
+		FACE7F239C94E350ED68E632178D97FD /* TransitionAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransitionAnimator.swift; path = PopupDialog/Classes/TransitionAnimator.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		19645892BC4802AA4FCAA563C1457CA8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8228B26AB1C77C5516604640120DEBA /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B5C8B9F4BDEE07CBF1009F055580E5C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF5567EFB4D6759DC9D75ECCF0DC720C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0E2DEF7FF31D5C4165B03BE706DA1938 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				474E3994D6B702AB931C5D8125160982 /* Pods-TaskApp */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		25D42065E91C742060B6041633C39926 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E197871E2E157F7C75B2AAB01D1EB169 /* Info.plist */,
+				F5052600E36B3CFA9D58DAEEB25C71C5 /* PopupDialog.modulemap */,
+				1C5BA7CFACA9B4B58D11AA592462D502 /* PopupDialog.xcconfig */,
+				65CFCFAEB1588F2D5A2A4F4B18E683EE /* PopupDialog-dummy.m */,
+				AB7BE5B26BB918EF04AC43C86FD69A0A /* PopupDialog-prefix.pch */,
+				C6F575662234000EA80FCB79B3447B7F /* PopupDialog-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/PopupDialog";
+			sourceTree = "<group>";
+		};
+		474E3994D6B702AB931C5D8125160982 /* Pods-TaskApp */ = {
+			isa = PBXGroup;
+			children = (
+				D186D2D4E8B59473D97358409BEBBAC4 /* Info.plist */,
+				82A5D639CA30669A9876DD4FF28FB98C /* Pods-TaskApp.modulemap */,
+				50B2BD3AF0C4A8383C6946E64D208FC7 /* Pods-TaskApp-acknowledgements.markdown */,
+				F37CD11859081952B82F2A34CC79A3EF /* Pods-TaskApp-acknowledgements.plist */,
+				D3D373BDE580B5BFFF95047E5497022B /* Pods-TaskApp-dummy.m */,
+				6F620AE6784D10DDCC3C106CFC16FEA7 /* Pods-TaskApp-frameworks.sh */,
+				D05BE8048141233BB8C7FF1EDBDE30C9 /* Pods-TaskApp-resources.sh */,
+				D7E0B2375C32D6D81E0BB8A2B8FF47DB /* Pods-TaskApp-umbrella.h */,
+				8E6C796749072052FA03D249308F2979 /* Pods-TaskApp.debug.xcconfig */,
+				D902461CE2DC810EEECA35A7C2A2DB94 /* Pods-TaskApp.release.xcconfig */,
+			);
+			name = "Pods-TaskApp";
+			path = "Target Support Files/Pods-TaskApp";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				E240431E22B64A30967D1D9C88F41A63 /* Pods */,
+				A60CA0A2C5ADF446690FC6D641408AC4 /* Products */,
+				0E2DEF7FF31D5C4165B03BE706DA1938 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		A60CA0A2C5ADF446690FC6D641408AC4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				390015E7FF242A1DAD9E370699DD5964 /* Pods_TaskApp.framework */,
+				DC289FE47A00333A1B68745AEA3B13B3 /* PopupDialog.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		DF02D39A593DDED4C0AE276887FDD7E6 /* PopupDialog */ = {
+			isa = PBXGroup;
+			children = (
+				03D358A3613EB08F0370C32C0BAC75DD /* FXBlurView.h */,
+				F6857CA437C74A08BD6C3E00D30DC833 /* FXBlurView.m */,
+				49682067F6C4D1CF80771EF845766596 /* InteractiveTransition.swift */,
+				34F479277725D5005EF246CDC4917C38 /* PopupDialog.swift */,
+				ACC1B477683825DB1F2A8D239B9BC56B /* PopupDialog+Keyboard.swift */,
+				171ED3B961E5C77913A4C2B460F11C89 /* PopupDialogButton.swift */,
+				0AA81510A571388638680BCB7AD583B1 /* PopupDialogContainerView.swift */,
+				B52B4770F34AF0B18CE182BA3F24ADC9 /* PopupDialogDefaultButtons.swift */,
+				09A9B644D4179C6A3AC023E41E1CA839 /* PopupDialogDefaultView.swift */,
+				AC6AB5983422D51E4577226940D69E3B /* PopupDialogDefaultViewController.swift */,
+				22B1B7DEB5C0B9219AB7DDF2BFD82D14 /* PopupDialogOverlayView.swift */,
+				070A59B2F0AC779785004CD295BA5927 /* PresentationController.swift */,
+				970D7F87A590564548A61661C1954652 /* PresentationManager.swift */,
+				4C5309466DE50CA169B15A754F936703 /* TransitionAnimations.swift */,
+				FACE7F239C94E350ED68E632178D97FD /* TransitionAnimator.swift */,
+				685763E94EFB56A907AF403D0B795251 /* UIImageView+Calculations.swift */,
+				4EE738E674D920435D80DA1143F918A6 /* UIView+Animations.swift */,
+				AB41538A2AA873A9F1F42CD77A96AD57 /* UIViewController+Visibility.swift */,
+				25D42065E91C742060B6041633C39926 /* Support Files */,
+			);
+			name = PopupDialog;
+			path = PopupDialog;
+			sourceTree = "<group>";
+		};
+		E240431E22B64A30967D1D9C88F41A63 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DF02D39A593DDED4C0AE276887FDD7E6 /* PopupDialog */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		7B12D865F3B0E9408B9F56417518CC4B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA4FF7EF4B7AB28C6975A3982E0C027A /* Pods-TaskApp-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBB2C8973123CDED0227A81FE7169A97 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				682A77FE95B80162CFC9104AD1EC6A70 /* FXBlurView.h in Headers */,
+				8B05ACC798D7486CBC7345625A94DDA7 /* PopupDialog-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		9A3BEC0E0B23D94DF3049F973A844460 /* PopupDialog */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DE01519D33273D0484FA9F2E5F262110 /* Build configuration list for PBXNativeTarget "PopupDialog" */;
+			buildPhases = (
+				F6D7FA9EEF3FD1F10FDB4D83D05F7ACD /* Sources */,
+				7B5C8B9F4BDEE07CBF1009F055580E5C /* Frameworks */,
+				EBB2C8973123CDED0227A81FE7169A97 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PopupDialog;
+			productName = PopupDialog;
+			productReference = DC289FE47A00333A1B68745AEA3B13B3 /* PopupDialog.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		DFC2765309641765ED949430099FB21C /* Pods-TaskApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D73C1BEFBAAD96069B95D2FC63ACC303 /* Build configuration list for PBXNativeTarget "Pods-TaskApp" */;
+			buildPhases = (
+				A0DDBAA4300ED63698947B7B7BF32DB4 /* Sources */,
+				19645892BC4802AA4FCAA563C1457CA8 /* Frameworks */,
+				7B12D865F3B0E9408B9F56417518CC4B /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				85FC471E5D8F3D2AB8756D6DEA29E602 /* PBXTargetDependency */,
+			);
+			name = "Pods-TaskApp";
+			productName = "Pods-TaskApp";
+			productReference = 390015E7FF242A1DAD9E370699DD5964 /* Pods_TaskApp.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = A60CA0A2C5ADF446690FC6D641408AC4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DFC2765309641765ED949430099FB21C /* Pods-TaskApp */,
+				9A3BEC0E0B23D94DF3049F973A844460 /* PopupDialog */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A0DDBAA4300ED63698947B7B7BF32DB4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8777254C314230679E46F7647742843 /* Pods-TaskApp-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F6D7FA9EEF3FD1F10FDB4D83D05F7ACD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8889E20BB13B8C0165540DDC41D58C3B /* FXBlurView.m in Sources */,
+				6EE7C79C0A54F27029796C8DA921B5AC /* InteractiveTransition.swift in Sources */,
+				C02A9FEC66F4F4D0E53DF53EFC2F84BF /* PopupDialog+Keyboard.swift in Sources */,
+				97AA1CEEF240D5E0C55A4798BE2D13B1 /* PopupDialog-dummy.m in Sources */,
+				1AB7F52C4E30F4A97EE7D0F2F3B18C85 /* PopupDialog.swift in Sources */,
+				EC44B16B61BB655B853958E56E85B32A /* PopupDialogButton.swift in Sources */,
+				E44F3465829A76C23469B6C515815DA7 /* PopupDialogContainerView.swift in Sources */,
+				972931AF098CEC4E10030CF7ABB9A5EA /* PopupDialogDefaultButtons.swift in Sources */,
+				606898D435B533B8B729F54703099FBA /* PopupDialogDefaultView.swift in Sources */,
+				1E1D674FE11DDCF602321BA48CF451FB /* PopupDialogDefaultViewController.swift in Sources */,
+				01C69DA8E5CAB5B30B9A726CE81C64E3 /* PopupDialogOverlayView.swift in Sources */,
+				9E3B789BAED511F18031DDAED5BC8A80 /* PresentationController.swift in Sources */,
+				3137ADA3169C9F2EB73307C53DA58BCC /* PresentationManager.swift in Sources */,
+				C4E553C445BA36AD9F8AD0457396E503 /* TransitionAnimations.swift in Sources */,
+				5293CD8B9CBF78C92199D0AEEA3B1A18 /* TransitionAnimator.swift in Sources */,
+				C9AB9C483EEE1D3877E26A14BE53CD41 /* UIImageView+Calculations.swift in Sources */,
+				7DDEBE62E931146AB9E7D3A6BABF6C58 /* UIView+Animations.swift in Sources */,
+				1B14B03B335B72B6F727C94DAD2FABC0 /* UIViewController+Visibility.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		85FC471E5D8F3D2AB8756D6DEA29E602 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PopupDialog;
+			target = 9A3BEC0E0B23D94DF3049F973A844460 /* PopupDialog */;
+			targetProxy = E8873BA6E8B8CFD45922EFF72B0A0500 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		23DC676D633501E8AF148C6053732E2B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D902461CE2DC810EEECA35A7C2A2DB94 /* Pods-TaskApp.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-TaskApp/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-TaskApp/Pods-TaskApp.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_TaskApp;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		6F9224530522DD3C735EC96CF142642E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		892A4E0354B8D2CA847EE9CF29953089 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E6C796749072052FA03D249308F2979 /* Pods-TaskApp.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-TaskApp/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-TaskApp/Pods-TaskApp.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_TaskApp;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A2B8B304CF88CD5936936F1E51F2A919 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C5BA7CFACA9B4B58D11AA592462D502 /* PopupDialog.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/PopupDialog/PopupDialog-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/PopupDialog/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/PopupDialog/PopupDialog.modulemap";
+				PRODUCT_NAME = PopupDialog;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B57951D085A1B98A97F8A1062A5E5C5B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		DAE675B0879B0F7520B85592C9D6F8C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C5BA7CFACA9B4B58D11AA592462D502 /* PopupDialog.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/PopupDialog/PopupDialog-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/PopupDialog/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/PopupDialog/PopupDialog.modulemap";
+				PRODUCT_NAME = PopupDialog;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B57951D085A1B98A97F8A1062A5E5C5B /* Debug */,
+				6F9224530522DD3C735EC96CF142642E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D73C1BEFBAAD96069B95D2FC63ACC303 /* Build configuration list for PBXNativeTarget "Pods-TaskApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				892A4E0354B8D2CA847EE9CF29953089 /* Debug */,
+				23DC676D633501E8AF148C6053732E2B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DE01519D33273D0484FA9F2E5F262110 /* Build configuration list for PBXNativeTarget "PopupDialog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAE675B0879B0F7520B85592C9D6F8C1 /* Debug */,
+				A2B8B304CF88CD5936936F1E51F2A919 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
