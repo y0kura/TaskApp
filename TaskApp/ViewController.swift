@@ -180,6 +180,40 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         return cell
     }
     
+    // セルタップ時
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        
+        switch viewTarget {
+        case TASK_CONST.ALL:
+            
+            pupupView(index: indexPath.row)
+            
+        case TASK_CONST.SEARCH:
+            
+            pupupView(index: getRowTaskArray(array: searchResult,index: indexPath.row))
+            
+        default:
+            pupupView(index: indexPath.row)
+        }
+    }
+    
+    // AddTaskポップアップ処理
+    func pupupView(index:Int){
+        
+        // ポップアップに表示したいビューコントローラー
+        let vc = AddTaskViewController(nibName: "AddTaskViewController", bundle: nil)
+        vc.task = taskArray[index].task!
+        vc.category = taskArray[index].category!
+        vc.date = taskArray[index].date!
+        vc.updataFlg = true
+        vc.updataRow = index
+        // 表示したいビューコントローラーを指定してポップアップを作る
+        let popup = PopupDialog(viewController: vc)
+        // 作成したポップアップを表示する
+        present(popup, animated: true, completion: nil)
+        
+    }
+    
     // 削除処理
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
@@ -194,17 +228,19 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                 
             case TASK_CONST.SEARCH:
                 
-                var i = 0
-                for data in taskArray{
-                    if(data.task == searchResult[indexPath.row].task &&
-                        data.category == searchResult[indexPath.row].category &&
-                        data.date == searchResult[indexPath.row].date ){
-                        
-                        taskArray.remove(at: i)
-                    }
-                    i = i + 1
-                }
+//                var i = 0
+//                for data in taskArray{
+//                    if(data.task == searchResult[indexPath.row].task &&
+//                        data.category == searchResult[indexPath.row].category &&
+//                        data.date == searchResult[indexPath.row].date ){
+//
+//                        taskArray.remove(at: i)
+//                    }
+//                    i = i + 1
+//                }
+                taskArray.remove(at: getRowTaskArray(array: searchResult,index: indexPath.row))
                 serchUpdata()
+                
             default:
                 taskArray.remove(at: indexPath.row)
             }
@@ -267,6 +303,20 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                 }
             }
         }
+    }
+    // TaskArrayの行番取得
+    func getRowTaskArray(array:[TaskProperty], index:Int) -> Int {
+        
+        var i:Int = 0
+        for data in taskArray{
+            if(data.task == searchResult[index].task &&
+                data.category == searchResult[index].category &&
+                data.date == searchResult[index].date ){
+                return i
+            }
+            i = i + 1
+        }
+        return i
     }
 }
 

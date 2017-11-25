@@ -29,9 +29,13 @@ class AddTaskViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     // カテゴリーリスト(debug)
     var categoryList = ["無し", "仕事", "プライベート"]
+    
     var task: String = ""
     var category: String = ""
     var date: String = ""
+    
+    var updataFlg = false
+    var updataRow = 0
     
     // タスク情報
     var taskArray = [TaskProperty]()
@@ -59,7 +63,6 @@ class AddTaskViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
          *******************************/
         taskTextField.delegate = self
         
-        
         /*******************************
          *  カテゴリー設定
          *******************************/
@@ -67,27 +70,28 @@ class AddTaskViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         categoryPicker.delegate = self
         categoryPicker.dataSource = self
         
-        // はじめに表示する項目を指定
-        categoryPicker.selectRow(0, inComponent: 0, animated: true)
-        category = categoryList[0]
-        
         /*******************************
          *  期日設定
          *******************************/
-        
-        
         // 日本語兼用の日付時刻のフォーマッタを設定
         FMT.locale = JA_LOCALE
         FMT.dateFormat = "yyyy年MM月dd日 HH時mm分"
-        
         // テキストフィールドにDatePickerを表示する
         dateTextField.inputView = DATE_PICKER
-        
         // 日本の日付表示形式にする
         DATE_PICKER.locale = NSLocale(localeIdentifier: "ja_JP") as Locale
-        
         //回されるたびにupdateStrメソッドが呼ばれるようにする
         DATE_PICKER.addTarget(self, action: #selector(updateStr), for: .valueChanged)
+        
+        // 更新or新規
+        if updataFlg{
+            setFirstView()
+            
+        }else{
+            categoryPicker.selectRow(0, inComponent: 0, animated: true)
+            category = categoryList[0]
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -126,6 +130,11 @@ class AddTaskViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         if (dateTextField.text != nil) {
             date = dateTextField.text!
         }
+        
+        if (updataFlg) {
+            taskArray.remove(at: updataRow)
+        }
+        
         // タスクプロパティにセット
         taskArray.append(TaskProperty(task:task,category:category,date:date))
         
@@ -144,6 +153,21 @@ class AddTaskViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         // 画面を戻す
         self.dismiss(animated: true, completion: nil)
     }
+    
+    func setFirstView() {
+        taskTextField.text = task
+        dateTextField.text = date
+        var i = 0
+        for str in categoryList{
+            if str == category{
+                categoryPicker.selectRow(i, inComponent: 0, animated: true)
+            }
+            i = i + 1
+        }
+    }
+    
+    
+    
     
     /*******************************
      *  MARK: タスク
