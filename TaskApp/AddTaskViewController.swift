@@ -29,22 +29,24 @@ class AddTaskViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     // カテゴリーリスト(debug)
     var categoryList = ["無し", "仕事", "プライベート"]
-    var task: String!
-    var category: String!
-    var date: Date!
+    var task: String = ""
+    var category: String = ""
+    var date: String = ""
     
     // タスク情報
     var taskArray = [TaskProperty]()
     
     // 日付入力用
     let DATE_PICKER = UIDatePicker()
+    
+
     // タイムゾーンを言語設定にあわせる
     let FMT = DateFormatter()
     let JA_LOCALE = Locale(identifier: "ja_JP")
     
     
     let userDefaults = UserDefaults.standard
-    
+
     // MARK: FormLoad時
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,15 +54,15 @@ class AddTaskViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         // アラートにボタンをつける
         ALERT1.addAction(UIAlertAction(title: "OK", style: .default))
         
-        /*********************
+        /*******************************
          *  タスク設定
-         *********************/
+         *******************************/
         taskTextField.delegate = self
         
         
-        /*********************
+        /*******************************
          *  カテゴリー設定
-         *********************/
+         *******************************/
         // プロトコルの設定
         categoryPicker.delegate = self
         categoryPicker.dataSource = self
@@ -69,9 +71,10 @@ class AddTaskViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         categoryPicker.selectRow(0, inComponent: 0, animated: true)
         category = categoryList[0]
         
-        /*********************
+        /*******************************
          *  期日設定
-         *********************/
+         *******************************/
+        
         
         // 日本語兼用の日付時刻のフォーマッタを設定
         FMT.locale = JA_LOCALE
@@ -92,62 +95,59 @@ class AddTaskViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
     }
     
-    /*********************
+    /*******************************
      *  MARK: AddTask押下時
-     *********************/
+     *******************************/
     @IBAction func addTaskTap(_ sender: Any) {
         
         //前回の保存内容があるかどうかを判定
         if((userDefaults.object(forKey: TASK_CONST.FOR_KEY)) != nil){
             
-          
-            
+            // 保存されているデータ取得
+            if let storedData = userDefaults.object(forKey: TASK_CONST.FOR_KEY) as? Data{
+
+                let unarchivedData = NSKeyedUnarchiver.unarchiveObject(with: storedData) as? [TaskProperty];()
+                var taskRecord:TaskProperty
+                for taskRecord in unarchivedData!{
+                    taskArray.append(taskRecord)
+                }
+            }
         }
         
-
         // textFiledのnilチェック
         if taskTextField.text == nil || taskTextField.text == ""{
             // アラート表示
             self.present(ALERT1, animated: true, completion: nil)
             return
         }
-        
         // タスクセット
         task = taskTextField.text!
         // 期日セット
-        date =  FMT.date(from: dateTextField.text!)
-        
+        if (dateTextField.text != nil) {
+            date = dateTextField.text!
+        }
         // タスクプロパティにセット
-        taskArray.append(TaskProperty(task:task!,category:category!,date:date!))
+        taskArray.append(TaskProperty(task:task,category:category,date:date))
         
         //保存
-        let task_Data = serialize(taskArray as NSObject)
-        userDefaults.set(task_Data, forKey: TASK_CONST.FOR_KEY)
-        userDefaults.synchronize()
-        
-        
-        
-        // アプリに保存する
+        let encodedData = NSKeyedArchiver.archivedData(withRootObject: taskArray)
+        UserDefaults.standard.set(encodedData, forKey: TASK_CONST.FOR_KEY)
         
         // 画面を戻す
-        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
         
     }
-    
-    
-    func serialize(_ obj: NSObject) -> Data {
-        return NSKeyedArchiver.archivedData(withRootObject: obj)
+    /*******************************
+     *  MARK: CloseTask押下時
+     *******************************/
+    @IBAction func closeTaskTap(_ sender: Any) {
+        // 画面を戻す
+        self.dismiss(animated: true, completion: nil)
     }
     
-    func deserialize(_ obj: Data) -> AnyObject {
-        return NSKeyedUnarchiver.unarchiveObject(with: obj)! as AnyObject
-    }
-    
-    
-    
-    /*********************
+    /*******************************
      *  MARK: タスク
-     *********************/
+     *******************************/
     //MARK: returnキー押下時
     func textFieldShouldReturn(_ taskTextField: UITextField) -> Bool {
         // キーボードを閉じる
@@ -160,9 +160,9 @@ class AddTaskViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         self.view.endEditing(true)
     }
     
-    /*********************
+    /*******************************
      *  MARK: カテゴリー
-     *********************/
+     *******************************/
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         // 表示する列数
         return 1
@@ -184,9 +184,9 @@ class AddTaskViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         category = categoryList[row]
     }
     
-    /*********************
+    /*******************************
      *  MARK: 期日
-     *********************/
+     *******************************/
     // 日付が変更された時
     @objc func updateStr() {
         

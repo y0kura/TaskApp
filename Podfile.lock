@@ -1,12 +1,15 @@
 PODS:
+  - Default (2.0.0)
   - PopupDialog (0.6.1)
 
 DEPENDENCIES:
+  - Default
   - PopupDialog (~> 0.6)
 
 SPEC CHECKSUMS:
+  Default: 46ef41ff5b290df6f857c7df57ba4048046ce79b
   PopupDialog: 1bdd1efbfb49eb619a280faa9a3bbaac76f94120
 
-PODFILE CHECKSUM: 61fd4c7617fa81ce5ec96c5284af3bf9c75ee813
+PODFILE CHECKSUM: 65bac611661ae8885a021ca29480ccd9b5e0d1f8
 
 COCOAPODS: 1.3.1

@@ -55,7 +55,8 @@
                         <barButtonItem key="rightBarButtonItem" title="Item" id="JY2-el-W3o"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="oJT-9R-7e4" id="3aY-jf-XvS"/>
+                        <outlet property="searchBar" destination="GgC-gG-kee" id="WyM-kt-wr1"/>
+                        <outlet property="tableView" destination="oJT-9R-7e4" id="uJd-3r-em3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

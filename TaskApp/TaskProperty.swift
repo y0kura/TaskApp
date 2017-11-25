@@ -12,7 +12,7 @@ class TaskProperty: NSObject ,NSCoding{
     
     var task: String?
     var category: String?
-    var date: Date?
+    var date: String?
     
     //シリアライズ
     func encode(with aCoder: NSCoder) {
@@ -22,21 +22,13 @@ class TaskProperty: NSObject ,NSCoding{
         aCoder.encode(date, forKey: "data3_key")
     }
     //デシリアライズ
-//    required init(coder: NSCoder) {
-//
-//        self.task = coder.decodeObject(forKey: "data1_key") as? String
-//        self.category = coder.decodeObject(forKey: "data2_key") as? String
-//        self.date = coder.decodeObject(forKey: "data3_key") as? Date
-//    }
-    
     required init(coder aDecoder: NSCoder) {
         self.task = aDecoder.decodeObject(forKey: "data1_key") as? String
         self.category = aDecoder.decodeObject(forKey: "data2_key") as? String
-        self.date = aDecoder.decodeObject(forKey: "data3_key") as? Date
+        self.date = aDecoder.decodeObject(forKey: "data3_key") as? String
     }
 
-    
-    init(task: String, category: String ,date:Date) {
+    init(task: String, category: String ,date:String) {
         self.task = task
         self.category = category
         self.date = date

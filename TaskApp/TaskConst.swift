@@ -11,5 +11,7 @@ import UIKit
 class TaskConst: NSObject {
 
     let FOR_KEY = "taskProperty"
+    let ALL = "ALL"
+    let SEARCH = "SEARCH"
     
 }
