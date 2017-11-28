@@ -16,6 +16,7 @@
 		ECB2991B1FC5E0E5006D61E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECB299191FC5E0E5006D61E1 /* Main.storyboard */; };
 		ECB2991D1FC5E0E5006D61E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECB2991C1FC5E0E5006D61E1 /* Assets.xcassets */; };
 		ECB299201FC5E0E5006D61E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECB2991E1FC5E0E5006D61E1 /* LaunchScreen.storyboard */; };
+		ECF854451FCC4E150067ADBE /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF854441FCC4E150067ADBE /* SideMenuViewController.swift */; };
 		F509CF0BCE7A8BF57853DA24 /* Pods_TaskApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BC6E8CF80524A70D47A323B /* Pods_TaskApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,7 @@
 		ECB2991C1FC5E0E5006D61E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ECB2991F1FC5E0E5006D61E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ECB299211FC5E0E5006D61E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECF854441FCC4E150067ADBE /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 			children = (
 				ECB299151FC5E0E5006D61E1 /* AppDelegate.swift */,
 				ECB299171FC5E0E5006D61E1 /* ViewController.swift */,
+				ECF854441FCC4E150067ADBE /* SideMenuViewController.swift */,
 				EC4CA2341FC5E2B900CDE6FF /* AddTaskViewController.swift */,
 				EC4CA23A1FC5EF9000CDE6FF /* TaskProperty.swift */,
 				EC588C721FC87B0000AA1026 /* TaskConst.swift */,
@@ -181,11 +184,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-TaskApp/Pods-TaskApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Default/Default.framework",
 				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
+				"${BUILT_PRODUCTS_DIR}/SlideMenuControllerSwift/SlideMenuControllerSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Default.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SlideMenuControllerSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -236,6 +241,7 @@
 				ECB299181FC5E0E5006D61E1 /* ViewController.swift in Sources */,
 				EC4CA23B1FC5EF9000CDE6FF /* TaskProperty.swift in Sources */,
 				EC4CA2361FC5E2B900CDE6FF /* AddTaskViewController.swift in Sources */,
+				ECF854451FCC4E150067ADBE /* SideMenuViewController.swift in Sources */,
 				ECB299161FC5E0E5006D61E1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

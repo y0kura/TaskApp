@@ -6,6 +6,7 @@ target 'TaskApp' do
   use_frameworks!
   pod 'PopupDialog', '~> 0.6'
   pod 'Default'
+  pod 'SlideMenuControllerSwift'
   # Pods for TaskApp
 
 end

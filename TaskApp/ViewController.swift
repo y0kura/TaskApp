@@ -14,19 +14,25 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var searchBar: UISearchBar!
-    
+    @IBOutlet var nvItem: UINavigationItem!
     
     let TASK_CONST = TaskConst()
     let userDefaults = UserDefaults.standard
+    let FMT = DateFormatter()
     
     // タスク情報
     var taskArray = [TaskProperty]()
+    // 表示データ
+    var viewResultData = [TaskProperty]()
+    // 表示カテゴリー
+    var viewCategory = ""
+    var viewDate = ""
     
-    //検索結果配列
-    var searchResult = [TaskProperty]()
+    var filterList = [String]()
+    var categoryList = [String]()
     
-    // 表示ターゲット
-    var viewTarget = ""
+    var startDate:Date?
+    var endDate:Date?
     
     /*******************************
      *  MARK: FormLoad
@@ -34,10 +40,25 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewTarget = TASK_CONST.ALL
+        // 表示するデータのカテゴリーセット
+        viewCategory = TASK_CONST.ALL
+        nvItem.title = TASK_CONST.ALL
+        
+        filterList = TASK_CONST.FILTER_LIST
+        categoryList = TASK_CONST.CATEGORY_LIST
+        // "全て"追加
+        filterList.append(TASK_CONST.ALL)
+        categoryList.append(TASK_CONST.ALL)
+        
+        //バー背景色
+//        self.navigationController?.navigationBar.barTintColor = UIColor.red
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        // 日本語兼用の日付時刻のフォーマッタを設定
+        FMT.locale = TASK_CONST.JA_LOCALE
+        FMT.dateFormat = TASK_CONST.DATE_FORMAT
         
         /*******************************
          *  UITableView
@@ -56,8 +77,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         searchBar.delegate = self
         //何も入力されていなくてもReturnキーを押せるようにする。
         searchBar.enablesReturnKeyAutomatically = false
-        //検索結果配列にデータをコピーする。
-        searchResult = taskArray
+        //表示データにTaskデータをコピーする。
+        viewResultData = taskArray
         
     }
 
@@ -74,9 +95,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         super.didReceiveMemoryWarning()
         
     }
-    
-
-    
     
     /*******************************
      *  MARK: タスク追加ボタン押下イベント
@@ -122,7 +140,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                 }
             }
         }
-        serchUpdata()
+        viewUpdata()
         tableView.reloadData()
     }
     
@@ -133,49 +151,15 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     // セクションの中のセルの数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        // 動的に処理
-        switch viewTarget {
-            
-        case TASK_CONST.ALL:
-            return taskArray.count
-            
-        case TASK_CONST.SEARCH:
-            return searchResult.count
-            
-        default:
-            return taskArray.count
-        }
+    
+        return viewResultData.count
     }
     
     // セル関連
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        
-        switch viewTarget {
-            
-        case TASK_CONST.ALL:
-            
-            cell.textLabel?.text = taskArray[indexPath.row].task
-            
-        case TASK_CONST.SEARCH:
-            
-            var i = 0
-            for data in taskArray{
-                if(data.task == searchResult[indexPath.row].task &&
-                   data.category == searchResult[indexPath.row].category &&
-                   data.date == searchResult[indexPath.row].date ){
-    
-                    cell.textLabel?.text = taskArray[i].task
-                }
-                i = i + 1
-            }
-        
-        default:
-            
-            cell.textLabel?.text = taskArray[indexPath.row].task
-        }
+        cell.textLabel?.text = taskArray[getRowTaskArray(array: viewResultData,index: indexPath.row)].task
         
         return cell
     }
@@ -183,18 +167,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     // セルタップ時
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
-        switch viewTarget {
-        case TASK_CONST.ALL:
-            
-            pupupView(index: indexPath.row)
-            
-        case TASK_CONST.SEARCH:
-            
-            pupupView(index: getRowTaskArray(array: searchResult,index: indexPath.row))
-            
-        default:
-            pupupView(index: indexPath.row)
-        }
+        pupupView(index: getRowTaskArray(array: viewResultData,index: indexPath.row))
     }
     
     // AddTaskポップアップ処理
@@ -204,8 +177,10 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         let vc = AddTaskViewController(nibName: "AddTaskViewController", bundle: nil)
         vc.task = taskArray[index].task!
         vc.category = taskArray[index].category!
-        vc.date = taskArray[index].date!
-        vc.updataFlg = true
+        if taskArray[index].date != nil{
+            vc.date = taskArray[index].date!
+        }
+        vc.isUpdata = true
         vc.updataRow = index
         // 表示したいビューコントローラーを指定してポップアップを作る
         let popup = PopupDialog(viewController: vc)
@@ -219,31 +194,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         if editingStyle == .delete{
             
-            
-            switch viewTarget {
-                
-            case TASK_CONST.ALL:
-                // 対象セルのデータを配列から削除
-                taskArray.remove(at: indexPath.row)
-                
-            case TASK_CONST.SEARCH:
-                
-//                var i = 0
-//                for data in taskArray{
-//                    if(data.task == searchResult[indexPath.row].task &&
-//                        data.category == searchResult[indexPath.row].category &&
-//                        data.date == searchResult[indexPath.row].date ){
-//
-//                        taskArray.remove(at: i)
-//                    }
-//                    i = i + 1
-//                }
-                taskArray.remove(at: getRowTaskArray(array: searchResult,index: indexPath.row))
-                serchUpdata()
-                
-            default:
-                taskArray.remove(at: indexPath.row)
-            }
+            taskArray.remove(at: getRowTaskArray(array: viewResultData,index: indexPath.row))
+            viewUpdata()
             
             // 削除後の配列を保存
             let encodedData = NSKeyedArchiver.archivedData(withRootObject: taskArray)
@@ -267,17 +219,22 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         //検索結果配列を空にする。
-        searchResult.removeAll()
-
+        viewResultData.removeAll()
         if(searchBar.text == "") {
-            //検索文字列が空の場合はすべてを表示する。
-            viewTarget = TASK_CONST.ALL
-        } else {
-            viewTarget = TASK_CONST.SEARCH
-            //検索文字列とスコープを含むデータを検索結果配列に追加する。
+            
+            //検索文字列が空の場合
             for data in taskArray {
-                if (data.task?.contains(searchText))!{
-                    searchResult.append(data)
+                getData(data: data)
+            }
+            
+        } else {
+            
+            //検索文字列とスコープを含むデータを検索結果配列に追加する。
+            let search:String = searchBar.text!
+            for data in taskArray {
+                
+                if (data.task?.contains(search))!{
+                    getData(data: data)
                 }
             }
         }
@@ -285,21 +242,25 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         tableView.reloadData()
     }
     
-    // MARK: searchResultUpData
-    func serchUpdata(){
+    // MARK: viewResultData更新
+    func viewUpdata(){
         
-        searchResult.removeAll()
+        viewResultData.removeAll()
         if(searchBar.text == "") {
-            //検索文字列が空の場合はすべてを表示する。
-            viewTarget = TASK_CONST.ALL
+            
+            //検索文字列が空の場合
+            for data in taskArray {
+                getData(data: data)
+            }
+            
         } else {
             
-            viewTarget = TASK_CONST.SEARCH
             //検索文字列とスコープを含むデータを検索結果配列に追加する。
             let search:String = searchBar.text!
             for data in taskArray {
+                
                 if (data.task?.contains(search))!{
-                    searchResult.append(data)
+                    getData(data: data)
                 }
             }
         }
@@ -309,14 +270,58 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         var i:Int = 0
         for data in taskArray{
-            if(data.task == searchResult[index].task &&
-                data.category == searchResult[index].category &&
-                data.date == searchResult[index].date ){
+            if(data.task == viewResultData[index].task &&
+                data.category == viewResultData[index].category &&
+                data.date == viewResultData[index].date ){
                 return i
             }
             i = i + 1
         }
         return i
     }
+    
+    // 表示データ取得
+    func getData(data:TaskProperty){
+        
+        
+        if viewDate != ""{
+            // 絞込み:フィルター
+            nvItem.title = viewDate
+            getViewDaate(data: data)
+        }else{
+            if viewCategory == TASK_CONST.ALL{
+                
+                // 対象カテゴリー[ALL]
+                viewResultData.append(data)
+            }else if(viewCategory == data.category){
+                
+                // 対象カテゴリー[ALL以外]
+                viewResultData.append(data)
+            }
+        }
+        
+    }
+
+    // 期日で絞り込む
+    private func getViewDaate(data:TaskProperty) {
+        
+        switch viewDate {
+        case filterList[3]:
+            // 期日無し
+            if data.date == nil{
+                viewResultData.append(data)
+            }
+        case filterList[4]:
+            // 全て
+            viewResultData.append(data)
+        default:
+            // 対象日付内
+            if startDate! <= data.date! && data.date! <= endDate!{
+                viewResultData.append(data)
+            }
+        }
+    }
+    
+    
 }
 
