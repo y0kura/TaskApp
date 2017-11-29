@@ -17,6 +17,9 @@
 		ECB2991D1FC5E0E5006D61E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECB2991C1FC5E0E5006D61E1 /* Assets.xcassets */; };
 		ECB299201FC5E0E5006D61E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECB2991E1FC5E0E5006D61E1 /* LaunchScreen.storyboard */; };
 		ECF854451FCC4E150067ADBE /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF854441FCC4E150067ADBE /* SideMenuViewController.swift */; };
+		ECF8544B1FCEE8330067ADBE /* btnBatu.png in Resources */ = {isa = PBXBuildFile; fileRef = ECF854481FCEE8320067ADBE /* btnBatu.png */; };
+		ECF8544C1FCEE8330067ADBE /* btnReload.png in Resources */ = {isa = PBXBuildFile; fileRef = ECF854491FCEE8330067ADBE /* btnReload.png */; };
+		ECF8544D1FCEE8330067ADBE /* btnPlus.png in Resources */ = {isa = PBXBuildFile; fileRef = ECF8544A1FCEE8330067ADBE /* btnPlus.png */; };
 		F509CF0BCE7A8BF57853DA24 /* Pods_TaskApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BC6E8CF80524A70D47A323B /* Pods_TaskApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +39,9 @@
 		ECB2991F1FC5E0E5006D61E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ECB299211FC5E0E5006D61E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECF854441FCC4E150067ADBE /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		ECF854481FCEE8320067ADBE /* btnBatu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnBatu.png; sourceTree = "<group>"; };
+		ECF854491FCEE8330067ADBE /* btnReload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnReload.png; sourceTree = "<group>"; };
+		ECF8544A1FCEE8330067ADBE /* btnPlus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnPlus.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +94,9 @@
 		ECB299141FC5E0E5006D61E1 /* TaskApp */ = {
 			isa = PBXGroup;
 			children = (
+				ECF854481FCEE8320067ADBE /* btnBatu.png */,
+				ECF8544A1FCEE8330067ADBE /* btnPlus.png */,
+				ECF854491FCEE8330067ADBE /* btnReload.png */,
 				ECB299151FC5E0E5006D61E1 /* AppDelegate.swift */,
 				ECB299171FC5E0E5006D61E1 /* ViewController.swift */,
 				ECF854441FCC4E150067ADBE /* SideMenuViewController.swift */,
@@ -166,8 +175,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECB299201FC5E0E5006D61E1 /* LaunchScreen.storyboard in Resources */,
+				ECF8544C1FCEE8330067ADBE /* btnReload.png in Resources */,
 				EC4CA2371FC5E2B900CDE6FF /* AddTaskViewController.xib in Resources */,
 				ECB2991D1FC5E0E5006D61E1 /* Assets.xcassets in Resources */,
+				ECF8544B1FCEE8330067ADBE /* btnBatu.png in Resources */,
+				ECF8544D1FCEE8330067ADBE /* btnPlus.png in Resources */,
 				ECB2991B1FC5E0E5006D61E1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

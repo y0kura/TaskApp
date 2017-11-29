@@ -41,7 +41,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         super.viewDidLoad()
         
         // 表示するデータのカテゴリーセット
-        viewCategory = TASK_CONST.ALL
         nvItem.title = TASK_CONST.ALL
         
         filterList = TASK_CONST.FILTER_LIST
@@ -49,9 +48,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         // "全て"追加
         filterList.append(TASK_CONST.ALL)
         categoryList.append(TASK_CONST.ALL)
-        
-        //バー背景色
-//        self.navigationController?.navigationBar.barTintColor = UIColor.red
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -110,6 +106,14 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         // 作成したポップアップを表示する
         present(popup, animated: true, completion: nil)
     }
+    
+    /*******************************
+     *  MARK: 更新ボタン押下イベント
+     *******************************/
+    @IBAction func reloadTap(_ sender: Any) {
+        tableReload()
+    }
+    
     
     /*******************************
      *  MARK: tableView
@@ -171,7 +175,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     // AddTaskポップアップ処理
-    func pupupView(index:Int){
+    private func pupupView(index:Int){
         
         // ポップアップに表示したいビューコントローラー
         let vc = AddTaskViewController(nibName: "AddTaskViewController", bundle: nil)
@@ -243,7 +247,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     // MARK: viewResultData更新
-    func viewUpdata(){
+    private func viewUpdata(){
         
         viewResultData.removeAll()
         if(searchBar.text == "") {
@@ -266,7 +270,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         }
     }
     // TaskArrayの行番取得
-    func getRowTaskArray(array:[TaskProperty], index:Int) -> Int {
+    private func getRowTaskArray(array:[TaskProperty], index:Int) -> Int {
         
         var i:Int = 0
         for data in taskArray{
@@ -281,25 +285,22 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     // 表示データ取得
-    func getData(data:TaskProperty){
-        
+    private func getData(data:TaskProperty){
         
         if viewDate != ""{
             // 絞込み:フィルター
             nvItem.title = viewDate
             getViewDaate(data: data)
+        }else if viewCategory != ""{
+            // 絞込み:カテゴリー
+            nvItem.title = viewCategory
+            getViewCategory(data: data)
+            
         }else{
-            if viewCategory == TASK_CONST.ALL{
-                
-                // 対象カテゴリー[ALL]
-                viewResultData.append(data)
-            }else if(viewCategory == data.category){
-                
-                // 対象カテゴリー[ALL以外]
-                viewResultData.append(data)
-            }
+            // 全て表示
+            nvItem.title = TASK_CONST.ALL
+            viewResultData.append(data)
         }
-        
     }
 
     // 期日で絞り込む
@@ -315,10 +316,36 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             // 全て
             viewResultData.append(data)
         default:
-            // 対象日付内
-            if startDate! <= data.date! && data.date! <= endDate!{
+            if data.date != nil{
+                // 対象日付内
+                if startDate! <= data.date! && data.date! <= endDate!{
+                    viewResultData.append(data)
+                }
+            }
+        }
+    }
+    
+    // カテゴリーで絞り込む
+    private func getViewCategory(data:TaskProperty){
+        switch viewCategory {
+        case categoryList[0]:
+            // 仕事
+            if data.category == categoryList[0]{
                 viewResultData.append(data)
             }
+        case categoryList[1]:
+            // プライベート
+            if data.category == categoryList[1]{
+                viewResultData.append(data)
+            }
+        case categoryList[2]:
+            // カテゴリー無し
+            if data.category == categoryList[2]{
+                viewResultData.append(data)
+            }
+        default:
+            // 全て
+            viewResultData.append(data)
         }
     }
     

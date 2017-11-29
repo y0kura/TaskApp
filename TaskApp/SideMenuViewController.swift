@@ -11,19 +11,18 @@ import UIKit
 class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, UINavigationControllerDelegate {
 
     @IBOutlet var filterTableView: UITableView!
-    @IBOutlet var CategoryTableView: UITableView!
+    @IBOutlet var categoryTableView: UITableView!
     
     let TASK_CONST = TaskConst()
     // タイムゾーンを言語設定にあわせる
     let FMT = DateFormatter()
-    
-    
     let calendar = NSCalendar(identifier: NSCalendar.Identifier.gregorian)!
     
     var filterList = [String]()
     var categoryList = [String]()
     
     // 表示する対象データ
+    var viewCategory = ""
     var viewDate = ""
     var startDate: Date?
     var endDate: Date?
@@ -34,8 +33,12 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
 
         filterTableView.delegate = self
         filterTableView.dataSource = self
+        filterTableView.isScrollEnabled = false
         
-        // BViewController自身をDelegate委託相手とする。
+        categoryTableView.delegate = self
+        categoryTableView.dataSource = self
+        categoryTableView.isScrollEnabled = false
+        
         navigationController?.delegate = self
         
         filterList = TASK_CONST.FILTER_LIST
@@ -43,26 +46,6 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
         // "全て"追加
         filterList.append(TASK_CONST.ALL)
         categoryList.append(TASK_CONST.ALL)
-        
-        /*******************************
-         *  UITableView
-         *******************************/
-        // フィルターテーブルへのリロード処理の追加
-        let refreshControl1 = UIRefreshControl()
-        refreshControl1.addTarget(self, action: #selector(ViewController.refreshControlValueChanged(sender:)), for: .valueChanged)
-        refreshControl1.addTarget(self, action: #selector(ViewController.refreshControlEndRefreshing(sender:)), for: .valueChanged)
-        filterTableView.addSubview(refreshControl1)
-        
-        // カテゴリーテーブルへのリロード処理の追加
-        let refreshControl2 = UIRefreshControl()
-        refreshControl2.addTarget(self, action: #selector(ViewController.refreshControlValueChanged(sender:)), for: .valueChanged)
-        refreshControl2.addTarget(self, action: #selector(ViewController.refreshControlEndRefreshing(sender:)), for: .valueChanged)
-        CategoryTableView.addSubview(refreshControl2)
-        
-        // 日本語兼用の日付時刻のフォーマッタを設定
-//        FMT.locale = TASK_CONST.JA_LOCALE
-//        FMT.dateFormat = TASK_CONST.DATE_FORMAT
-//        FMT.dateFormat = DateFormatter.dateFormat(fromTemplate: "ydMMM", options: 0, locale: Locale(identifier: "ja_JP"))
     }
 
     override func didReceiveMemoryWarning() {
@@ -148,6 +131,20 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
             }
         }else{
             // カテゴリーテーブル
+            switch categoryList[indexPath.row] {
+            case categoryList[0]:
+                // 仕事
+                viewCategory =  categoryList[0]
+            case categoryList[1]:
+                // プライベート
+                viewCategory =  categoryList[1]
+            case categoryList[2]:
+                // カテゴリー無し
+                viewCategory =  categoryList[2]
+            default:
+                // 全て
+                viewCategory =  categoryList[3]
+            }
             
         }
         
@@ -160,11 +157,11 @@ class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDa
         // 遷移先が、AViewControllerだったら……
         if let controller = viewController as? ViewController {
             // AViewControllerのプロパティvalueの値変更。
-            
+                
             controller.viewDate = viewDate
+            controller.viewCategory = viewCategory
             controller.startDate = startDate
             controller.endDate = endDate
-            
             controller.tableReload()
         }
     }

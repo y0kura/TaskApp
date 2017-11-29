@@ -38,16 +38,45 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MiP-Jd-XRk">
-                                <rect key="frame" x="305" y="617" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MiP-Jd-XRk">
+                                <rect key="frame" x="314" y="602" width="45" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="6Ur-h0-0fm"/>
+                                    <constraint firstAttribute="height" constant="45" id="jGh-Ob-HSb"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="btnPlus.png"/>
                                 <connections>
                                     <action selector="addTaskTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Lv-FU-WRb"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="JJQ-K4-JAk">
+                                <rect key="frame" x="314" y="547" width="45" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="nFT-cM-wCf">
+                                        <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9iA-Bs-pRf">
+                                                <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="45" id="rBs-C1-GN3"/>
+                                                    <constraint firstAttribute="width" constant="45" id="xxH-it-s8V"/>
+                                                </constraints>
+                                                <state key="normal" title="Button" image="btnReload.png"/>
+                                                <connections>
+                                                    <action selector="reloadTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="25m-mq-iFz"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MiP-Jd-XRk" secondAttribute="trailing" constant="16" id="T4I-4q-fMj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="MiP-Jd-XRk" secondAttribute="bottom" constant="20" id="uSl-Pd-oNP"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="MdF-cC-0Sh">
@@ -81,7 +110,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="フィルター" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5w-NT-Fc8">
                                 <rect key="frame" x="16" y="81" width="343" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -118,7 +147,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="カテゴリー" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T3F-i0-WP2">
                                 <rect key="frame" x="16" y="377" width="343" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -129,6 +158,7 @@
                     <navigationItem key="navigationItem" id="BTY-Mq-iTD"/>
                     <connections>
                         <outlet property="CategoryTableView" destination="SeY-D9-qsD" id="QCW-8a-O18"/>
+                        <outlet property="categoryTableView" destination="SeY-D9-qsD" id="3Wr-MZ-Eff"/>
                         <outlet property="filterTableView" destination="uiv-UK-Hnk" id="Hvs-RZ-ksr"/>
                     </connections>
                 </viewController>
@@ -155,4 +185,8 @@
             <point key="canvasLocation" x="-404" y="32"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="btnPlus.png" width="256" height="256"/>
+        <image name="btnReload.png" width="256" height="256"/>
+    </resources>
 </document>
